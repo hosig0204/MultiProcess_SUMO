@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2022-07-30 17:59:34 by Eclipse SUMO netconvert Version 1.13.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
+
+    <input>
+        <sumo-net-file value="munich_motorway_v3/mmv3.net.xml"/>
+    </input>
+
+    <output>
+        <output-file value="munich_motorway_v3/sumo_mmv3.net.xml"/>
+        <plain-output-prefix value="plainnet"/>
+        <output.street-names value="true"/>
+    </output>
+
+    <processing>
+        <geometry.min-radius.fix.railways value="false"/>
+        <geometry.max-grade.fix value="false"/>
+        <offset.disable-normalization value="true"/>
+        <lefthand value="false"/>
+    </processing>
+
+    <junctions>
+        <no-turnarounds value="true"/>
+        <junctions.corner-detail value="5"/>
+        <junctions.limit-turn-speed value="5.5"/>
+        <rectangular-lane-cut value="false"/>
+    </junctions>
+
+    <pedestrian>
+        <walkingareas value="false"/>
+    </pedestrian>
+
+    <report>
+        <aggregate-warnings value="5"/>
+    </report>
+
+</configuration>
+-->
+
+<tlLogics version="1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/tllogic_file.xsd">
+    <tlLogic id="GS_1393033848" type="actuated" programID="0" offset="0">
+        <phase duration="40" state="Grr" minDur="10" maxDur="50"/>
+        <phase duration="5"  state="yrr"/>
+        <phase duration="40" state="rGG" minDur="10" maxDur="50"/>
+        <phase duration="5"  state="ryy"/>
+    </tlLogic>
+
+    <connection from="4241832#0" to="4241832#2" fromLane="0" toLane="0" tl="GS_1393033848" linkIndex="1"/>
+    <connection from="4241832#0" to="4241832#2" fromLane="1" toLane="1" tl="GS_1393033848" linkIndex="2"/>
+    <connection from="504568280#0" to="4241832#2" fromLane="0" toLane="0" tl="GS_1393033848" linkIndex="0"/>
+</tlLogics>
