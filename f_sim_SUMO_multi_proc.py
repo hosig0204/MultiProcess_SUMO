@@ -1,6 +1,5 @@
 # Import modules.
 from multiprocessing import Process, Manager, cpu_count
-from itertools import permutations
 from od_cal_fct.flow_gen import *
 from od_cal_fct.user_utill import *
 import pandas as pd
@@ -51,6 +50,15 @@ if __name__ == '__main__':
     # int_n_cpu = cpu_count()                 # Retrive core numbers.
     # int_n_proc = round(int_n_cpu * 0.7)     # Use only 70% of available cores.    
     int_n_proc = 15 # Let's use this number of processors.
+    
+    # Make temporary directories.
+    str_root_tmp = "./data_sumo"
+    for idx in range(1, int_n_proc + 1):    
+        str_sub_root = f"proc_{idx}"
+        path_sub_root = os.path.join(str_root_tmp, str_sub_root)    
+        os.makedirs(path_sub_root, exist_ok= True)
+        os.makedirs(os.path.join(path_sub_root, "tmp"), exist_ok= True)
+        os.makedirs(os.path.join(path_sub_root, "tmp_edgeInfo"), exist_ok= True)
     
     # Import edge info dataframe segmented ordered.
     df_edge_seg_ordered = pd.read_pickle("munich_motorway_v3/df_edge_seg_ordered.pkl")
